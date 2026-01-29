@@ -19,23 +19,27 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} antialiased`}>
-        <nav className="border-b border-border bg-background sticky top-0 z-50">
-          <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="/" className="font-bold text-xl tracking-tighter">LINGUA LEARN</a>
-            <div className="flex gap-6 text-sm font-medium">
-              <a href="/lessons" className="hover:underline">Lessons</a>
-              <a href="/quizzes" className="hover:underline">Quizzes</a>
-              <a href="/progress" className="hover:underline">Progress</a>
+      <body className={`${inter.variable} antialiased min-h-screen flex flex-col`}>
+        <nav className="border-b border-border bg-background/80 backdrop-blur-md sticky top-0 z-50">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            <a href="/" className="font-bold text-lg sm:text-xl tracking-tighter">LINGUA LEARN</a>
+            <div className="flex gap-4 sm:gap-6 text-xs sm:text-sm font-medium">
+              <a href="/lessons" className="hover:underline opacity-80 hover:opacity-100 transition-opacity">Lessons</a>
+              <a href="/quizzes" className="hover:underline opacity-80 hover:opacity-100 transition-opacity">Quizzes</a>
+              <a href="/progress" className="hover:underline opacity-80 hover:opacity-100 transition-opacity">Progress</a>
             </div>
           </div>
         </nav>
-        <main className="max-w-5xl mx-auto px-6 py-12">
+        <main className="flex-grow max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12 w-full">
           {children}
         </main>
-        <footer className="border-t border-border mt-24 py-12 bg-muted">
-          <div className="max-w-5xl mx-auto px-6 text-center text-sm text-foreground/60">
-            &copy; {new Date().getFullYear()} Lingua Learn. Built for Vercel.
+        <footer className="border-t border-border mt-auto py-8 bg-muted/30">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs sm:text-sm text-foreground/50">
+            <p>&copy; {new Date().getFullYear()} Lingua Learn. Premium Linguistic Base.</p>
+            <div className="flex gap-4">
+              <span className="cursor-default">v1.1.0</span>
+              <a href="https://github.com/kbreabhayle/lingua-learn" className="hover:text-foreground underline underline-offset-4">Source</a>
+            </div>
           </div>
         </footer>
       </body>
