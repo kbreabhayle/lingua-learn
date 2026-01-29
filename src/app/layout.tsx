@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} antialiased min-h-screen flex flex-col`}>
+      <body className={`${inter.variable} antialiased`}>
         <nav className="border-b border-border bg-background/80 backdrop-blur-md sticky top-0 z-50">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
             <a href="/" className="font-bold text-lg sm:text-xl tracking-tighter">LINGUA LEARN</a>
@@ -30,18 +30,9 @@ export default function RootLayout({
             </div>
           </div>
         </nav>
-        <main className="flex-grow max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12 w-full">
+        <main className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12 w-full">
           {children}
         </main>
-        <footer className="border-t border-border mt-auto py-8 bg-muted/30">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs sm:text-sm text-foreground/50">
-            <p>&copy; {new Date().getFullYear()} Lingua Learn. Premium Linguistic Base.</p>
-            <div className="flex gap-4">
-              <span className="cursor-default">v1.1.0</span>
-              <a href="https://github.com/kbreabhayle/lingua-learn" className="hover:text-foreground underline underline-offset-4">Source</a>
-            </div>
-          </div>
-        </footer>
       </body>
     </html>
   );
