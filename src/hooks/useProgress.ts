@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 
+import { useSettings } from "@/context/SettingsContext";
+
 const STORAGE_KEY = "lingua-learn-progress";
 
 export interface UserProgress {
@@ -11,6 +13,7 @@ export interface UserProgress {
 }
 
 export const useProgress = () => {
+    const { incrementDailyProgress } = useSettings();
     const [progress, setProgress] = useState<UserProgress>({
         completedItems: [],
         quizScores: [],
@@ -35,12 +38,15 @@ export const useProgress = () => {
 
     const markItemAsComplete = (itemId: string) => {
         if (progress.completedItems.includes(itemId)) return;
+
         const newCompleted = [...progress.completedItems, itemId];
         saveProgress({
             ...progress,
             completedItems: newCompleted,
-            // Recalculate percentage elsewhere or here
         });
+
+        // Increment daily goal
+        incrementDailyProgress();
     };
 
     return { progress, markItemAsComplete, saveProgress };

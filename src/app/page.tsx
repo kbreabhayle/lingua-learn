@@ -1,5 +1,6 @@
 import { VOCABULARY } from "@/data/vocabulary";
 import Link from "next/link";
+import DailyGoal from "@/components/DailyGoal";
 
 export default function Home() {
   const phrasalVerbs = VOCABULARY.filter(v => v.category === 'phrasal verbs');
@@ -9,6 +10,11 @@ export default function Home() {
 
   return (
     <div className="space-y-16 sm:space-y-24">
+      {/* Habit Tracker */}
+      <section className="max-w-md mx-auto px-4 -mb-8 sm:-mb-16 relative z-10">
+        <DailyGoal />
+      </section>
+
       {/* Hero Section */}
       <section className="text-center pt-8 sm:pt-16 pb-12 sm:pb-24 space-y-6 sm:space-y-8 animate-fade-in px-4">
         <h1 className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tighter uppercase leading-[0.9] sm:leading-none">
