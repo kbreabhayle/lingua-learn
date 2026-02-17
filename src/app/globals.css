@@ -15,6 +15,19 @@
   /* Gray 400 */
 }
 
+[data-theme='purple'] {
+  --background: #ffffff;
+  --foreground: #000000;
+  --primary: #7c3aed;
+  /* Violet 600 */
+  --secondary: #f5f3ff;
+  /* Violet 50 */
+  --muted: #ede9fe;
+  /* Violet 100 */
+  --border: #ddd6fe;
+  /* Violet 200 */
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

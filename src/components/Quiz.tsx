@@ -4,6 +4,7 @@ import { useState, useMemo, useEffect } from "react";
 import { VOCABULARY, VocabularyItem } from "@/data/vocabulary";
 import { cn } from "@/lib/utils";
 import { useProgress } from "@/hooks/useProgress";
+import { useSettings } from "@/context/SettingsContext";
 import Link from "next/link";
 
 type QuizType = 'multiple_choice' | 'fill_in_the_blank';
@@ -17,16 +18,24 @@ export default function Quiz() {
 
     const { progress, saveProgress } = useProgress();
 
-    // Generate 10 random questions with mixed types
+    const { level } = useSettings();
+
+    // Generate 10 random questions with mixed types based on level
     const quizItems = useMemo(() => {
-        return [...VOCABULARY]
+        const targetDifficulty = level === 'beginner' ? 'beginner' : 'intermediate';
+        const filteredVocab = VOCABULARY.filter(v => v.difficulty === targetDifficulty);
+
+        // Fallback if not enough items in filtered set (shouldn't happen with 500 items but good safety)
+        const sourceData = filteredVocab.length >= 10 ? filteredVocab : VOCABULARY;
+
+        return [...sourceData]
             .sort(() => Math.random() - 0.5)
             .slice(0, 10)
             .map((item, idx) => ({
                 ...item,
                 type: idx % 2 === 0 ? 'multiple_choice' : 'fill_in_the_blank' as QuizType
             }));
-    }, [step === 'lobby']);
+    }, [step === 'lobby', level]);
 
     const currentItem = quizItems[currentIndex];
 

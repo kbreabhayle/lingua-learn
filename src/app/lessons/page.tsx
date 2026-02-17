@@ -1,19 +1,28 @@
 import { VOCABULARY } from "@/data/vocabulary";
 import Link from "next/link";
+import { useSettings } from "@/context/SettingsContext";
 
 export default function LessonsPage() {
+    const { level } = useSettings();
+
+    // Filter vocabulary based on selected level
+    // Map 'advanced' setting to 'intermediate' data for now, or assume data will be updated
+    const targetDifficulty = level === 'beginner' ? 'beginner' : 'intermediate';
+
+    const filteredVocab = VOCABULARY.filter(v => v.difficulty === targetDifficulty);
+
     const categories = [
         {
             name: "Phrasal Verbs",
             slug: "phrasal-verbs",
             description: "Verbs combined with prepositions or adverbs.",
-            count: VOCABULARY.filter(v => v.category === 'phrasal verbs').length
+            count: filteredVocab.filter(v => v.category === 'phrasal verbs').length
         },
         {
             name: "Slang Words",
             slug: "slang-words",
             description: "Informal language and contemporary expressions.",
-            count: VOCABULARY.filter(v => v.category === 'slang words').length
+            count: filteredVocab.filter(v => v.category === 'slang words').length
         }
     ];
 
