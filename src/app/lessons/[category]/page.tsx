@@ -35,11 +35,19 @@ export default function CategoryPage() {
                     <Link href="/lessons" className="text-[10px] sm:text-xs font-bold hover:underline uppercase opacity-50">&larr; All Categories</Link>
                     <h1 className="text-3xl sm:text-5xl font-black uppercase tracking-tighter">{categoryName}</h1>
                 </div>
-                <div className="bg-muted px-4 sm:px-6 py-3 sm:py-4 border-2 border-primary w-fit self-start sm:self-auto">
-                    <span className="text-[10px] sm:text-xs font-black uppercase opacity-60 block mb-1">Category Progress</span>
-                    <span className="text-xl sm:text-2xl font-black">
-                        {items.filter(i => progress.completedItems.includes(i.id)).length} / {items.length}
-                    </span>
+                <div className="bg-muted px-4 sm:px-6 py-3 sm:py-4 border-2 border-primary w-fit self-start sm:self-auto flex flex-col items-end gap-2">
+                    <div>
+                        <span className="text-[10px] sm:text-xs font-black uppercase opacity-60 block mb-1">Category Progress</span>
+                        <span className="text-xl sm:text-2xl font-black">
+                            {items.filter(i => progress.completedItems.includes(i.id)).length} / {items.length}
+                        </span>
+                    </div>
+                    <Link
+                        href={`/quizzes?category=${categorySlug}`}
+                        className="text-[10px] font-bold uppercase bg-primary text-secondary px-3 py-1 rounded hover:opacity-80 transition-opacity"
+                    >
+                        Take {categoryName} Quiz &rarr;
+                    </Link>
                 </div>
             </div>
 

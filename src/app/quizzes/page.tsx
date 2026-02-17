@@ -1,9 +1,12 @@
 import Quiz from "@/components/Quiz";
+import { Suspense } from "react";
 
-export default function QuizPage() {
+export default function QuizzesPage() {
     return (
-        <div className="max-w-3xl mx-auto">
-            <Quiz />
+        <div className="container py-8 sm:py-12">
+            <Suspense fallback={<div className="text-center p-12">Loading Quiz...</div>}>
+                <Quiz />
+            </Suspense>
         </div>
     );
 }

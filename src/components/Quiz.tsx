@@ -6,10 +6,14 @@ import { cn } from "@/lib/utils";
 import { useProgress } from "@/hooks/useProgress";
 import { useSettings } from "@/context/SettingsContext";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
 type QuizType = 'multiple_choice' | 'fill_in_the_blank';
 
 export default function Quiz() {
+    const searchParams = useSearchParams();
+    const categoryParam = searchParams.get('category');
+
     const [step, setStep] = useState<'lobby' | 'active' | 'results'>('lobby');
     const [currentIndex, setCurrentIndex] = useState(0);
     const [score, setScore] = useState(0);
@@ -17,17 +21,30 @@ export default function Quiz() {
     const [inputValue, setInputValue] = useState("");
 
     const { progress, saveProgress } = useProgress();
-
     const { level } = useSettings();
 
-    // Generate 10 random questions with mixed types based on level
-    const quizItems = useMemo(() => {
-        // Map 'advanced' to 'intermediate' until we have dedicated advanced content
-        const targetDifficulty = level === 'advanced' ? 'intermediate' : level;
-        const filteredVocab = VOCABULARY.filter(v => v.difficulty === targetDifficulty);
+    // Determine Quiz Topic Name
+    const quizTopic = useMemo(() => {
+        if (categoryParam) return categoryParam.replace('-', ' ') + " Quiz";
+        return `${level.charAt(0).toUpperCase() + level.slice(1)} Vocabulary`;
+    }, [categoryParam, level]);
 
-        // Fallback if not enough items in filtered set
-        const sourceData = filteredVocab.length >= 10 ? filteredVocab : VOCABULARY;
+    // Generate 10 random questions
+    const quizItems = useMemo(() => {
+        let sourceData = VOCABULARY;
+
+        if (categoryParam) {
+            // Filter by category if param exists
+            const formattedCategory = categoryParam.replace('-', ' ');
+            sourceData = VOCABULARY.filter(v => v.category.toLowerCase() === formattedCategory.toLowerCase());
+        } else {
+            // Otherwise filter by level
+            const targetDifficulty = level === 'advanced' ? 'intermediate' : level;
+            sourceData = VOCABULARY.filter(v => v.difficulty === targetDifficulty);
+        }
+
+        // Fallback if not enough items
+        if (sourceData.length < 5) sourceData = VOCABULARY; // Ensure we have something
 
         return [...sourceData]
             .sort(() => Math.random() - 0.5)
@@ -36,7 +53,7 @@ export default function Quiz() {
                 ...item,
                 type: idx % 2 === 0 ? 'multiple_choice' : 'fill_in_the_blank' as QuizType
             }));
-    }, [step === 'lobby', level]);
+    }, [step === 'lobby', level, categoryParam]);
 
     const currentItem = quizItems[currentIndex];
 
@@ -67,10 +84,14 @@ export default function Quiz() {
             } else {
                 setStep('results');
                 const finalScore = isCorrect ? score + 1 : score;
+
+                // Save with Topic Metadata
                 const newScores = [...progress.quizScores, {
                     quizId: new Date().toISOString(),
                     score: finalScore,
-                    total: quizItems.length
+                    total: quizItems.length,
+                    topic: quizTopic,
+                    level: level
                 }];
                 saveProgress({ ...progress, quizScores: newScores });
             }
@@ -80,8 +101,10 @@ export default function Quiz() {
     if (step === 'lobby') {
         return (
             <div className="text-center space-y-8 animate-fade-in glass-panel p-12 rounded-xl">
-                <h1 className="text-6xl font-black uppercase text-primary">Quiz Mode</h1>
+                <h1 className="text-4xl sm:text-6xl font-black uppercase text-primary">{quizTopic}</h1>
                 <p className="text-xl font-medium text-foreground/60 max-w-md mx-auto">
+                    Test your knowledge of {categoryParam ? categoryParam.replace('-', ' ') : level} terms.
+                    <br />
                     Mixed Challenge: Multiple Choice & Fill-in-the-blank.
                 </p>
                 <button

@@ -8,7 +8,13 @@ const STORAGE_KEY = "lingua-learn-progress";
 
 export interface UserProgress {
     completedItems: string[];
-    quizScores: { quizId: string; score: number; total: number }[];
+    quizScores: {
+        quizId: string;
+        score: number;
+        total: number;
+        topic?: string;
+        level?: string;
+    }[];
     overallProgress: number;
 }
 

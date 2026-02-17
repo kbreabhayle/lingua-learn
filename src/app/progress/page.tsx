@@ -75,7 +75,8 @@ export default function ProgressPage() {
                             <div key={idx} className="border-2 border-primary p-4 sm:p-6 flex justify-between items-center bg-background card-hover rounded-xl">
                                 <div className="space-y-1">
                                     <span className="text-[10px] font-bold uppercase opacity-40 block">{new Date(q.quizId).toLocaleDateString()}</span>
-                                    <span className="text-base sm:text-lg font-black uppercase tracking-tight">Vocabulary Quiz</span>
+                                    <span className="text-base sm:text-lg font-black uppercase tracking-tight">{q.topic || "Vocabulary Quiz"}</span>
+                                    {q.level && <span className="text-[10px] font-bold uppercase block text-primary/70">{q.level} Level</span>}
                                 </div>
                                 <div className="text-right">
                                     <span className={cn(
