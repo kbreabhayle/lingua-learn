@@ -33,32 +33,32 @@ export default function Home() {
 
       {/* Categories Grid */}
       <section className="grid sm:grid-cols-2 gap-8 sm:gap-12 px-4 sm:px-0">
-        <div className="border-4 border-primary p-6 sm:p-8 space-y-4 hover:bg-muted/50 transition-all group card-hover relative overflow-hidden">
-          <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight">Phrasal Verbs</h2>
-          <p className="text-sm sm:text-base text-foreground/60 font-medium leading-relaxed">
+        <div className="glass-panel p-6 sm:p-8 space-y-4 hover:bg-white/50 transition-all group card-hover relative overflow-hidden rounded-xl">
+          <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-primary">Phrasal Verbs</h2>
+          <p className="text-sm sm:text-base text-foreground/80 font-medium leading-relaxed">
             Essential combinations of verbs and prepositions/adverbs that every fluent speaker knows.
           </p>
           <div className="pt-4 flex items-center justify-between">
-            <span className="text-[10px] sm:text-xs font-bold opacity-30">{phrasalVerbs.length} ITEMS</span>
+            <span className="text-[10px] sm:text-xs font-bold opacity-50 text-foreground">{phrasalVerbs.length} ITEMS</span>
             <Link
               href="/lessons/phrasal-verbs"
-              className="font-black text-sm sm:text-base group-hover:translate-x-1 transition-transform underline underline-offset-4"
+              className="font-black text-sm sm:text-base group-hover:translate-x-1 transition-transform underline underline-offset-4 text-primary"
             >
               EXPLORE &rarr;
             </Link>
           </div>
         </div>
 
-        <div className="border-4 border-primary p-6 sm:p-8 space-y-4 hover:bg-muted/50 transition-all group card-hover relative overflow-hidden">
-          <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight">Slang Words</h2>
-          <p className="text-sm sm:text-base text-foreground/60 font-medium leading-relaxed">
+        <div className="glass-panel p-6 sm:p-8 space-y-4 hover:bg-white/50 transition-all group card-hover relative overflow-hidden rounded-xl">
+          <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-primary">Slang Words</h2>
+          <p className="text-sm sm:text-base text-foreground/80 font-medium leading-relaxed">
             The informal language used by native speakers. Stay current with modern daily speech.
           </p>
           <div className="pt-4 flex items-center justify-between">
-            <span className="text-[10px] sm:text-xs font-bold opacity-30">{slangWords.length} ITEMS</span>
+            <span className="text-[10px] sm:text-xs font-bold opacity-50 text-foreground">{slangWords.length} ITEMS</span>
             <Link
               href="/lessons/slang-words"
-              className="font-black text-sm sm:text-base group-hover:translate-x-1 transition-transform underline underline-offset-4"
+              className="font-black text-sm sm:text-base group-hover:translate-x-1 transition-transform underline underline-offset-4 text-primary"
             >
               EXPLORE &rarr;
             </Link>

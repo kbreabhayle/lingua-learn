@@ -1,16 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #000000;
-  --primary: #7c3aed;
-  /* Violet 600 */
-  --secondary: #f5f3ff;
-  /* Violet 50 */
-  --muted: #ede9fe;
-  /* Violet 100 */
-  --border: #ddd6fe;
-  /* Violet 200 */
+  --background: #e5e7eb;
+  /* Gray 200 */
+  --foreground: #111827;
+  /* Gray 900 */
+  --primary: #374151;
+  /* Gray 700 - Actionable/Buttons */
+  --secondary: #f9fafb;
+  /* Gray 50 */
+  --muted: #d1d5db;
+  /* Gray 300 */
+  --border: #9ca3af;
+  /* Gray 400 */
 }
 
 @theme inline {
@@ -63,9 +65,11 @@ h6 {
 
 /* Utilities */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .card-hover {

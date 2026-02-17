@@ -29,16 +29,16 @@ export default function LessonsPage() {
                     <Link
                         key={cat.slug}
                         href={`/lessons/${cat.slug}`}
-                        className="group border-2 border-primary p-6 sm:p-8 hover:bg-primary hover:text-secondary transition-all flex flex-col sm:flex-row sm:items-center justify-between card-hover"
+                        className="group glass-panel p-6 sm:p-8 hover:bg-white/60 transition-all flex flex-col sm:flex-row sm:items-center justify-between card-hover rounded-xl text-foreground"
                     >
                         <div className="space-y-1 sm:space-y-2">
-                            <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight">{cat.name}</h2>
+                            <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-primary">{cat.name}</h2>
                             <p className="text-sm sm:text-base opacity-70 group-hover:opacity-100 transition-opacity max-w-md">
                                 {cat.description}
                             </p>
                         </div>
                         <div className="mt-4 sm:mt-0 text-left sm:text-right">
-                            <span className="text-3xl sm:text-4xl font-black block">{cat.count}</span>
+                            <span className="text-3xl sm:text-4xl font-black block text-primary">{cat.count}</span>
                             <p className="text-[10px] sm:text-xs font-bold uppercase opacity-60">Total Items</p>
                         </div>
                     </Link>

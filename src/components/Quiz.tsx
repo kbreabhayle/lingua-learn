@@ -69,8 +69,8 @@ export default function Quiz() {
 
     if (step === 'lobby') {
         return (
-            <div className="text-center space-y-8 animate-fade-in border-4 border-primary p-12">
-                <h1 className="text-6xl font-black uppercase">Quiz Mode</h1>
+            <div className="text-center space-y-8 animate-fade-in glass-panel p-12 rounded-xl">
+                <h1 className="text-6xl font-black uppercase text-primary">Quiz Mode</h1>
                 <p className="text-xl font-medium text-foreground/60 max-w-md mx-auto">
                     Mixed Challenge: Multiple Choice & Fill-in-the-blank.
                 </p>
@@ -80,7 +80,7 @@ export default function Quiz() {
                         setCurrentIndex(0);
                         setStep('active');
                     }}
-                    className="bg-primary text-secondary px-12 py-4 font-black transition-transform hover:scale-105 uppercase tracking-widest"
+                    className="bg-primary text-secondary px-12 py-4 font-black transition-transform hover:scale-105 uppercase tracking-widest rounded-lg"
                 >
                     Begin Test
                 </button>
@@ -91,20 +91,20 @@ export default function Quiz() {
     if (step === 'results') {
         const percentage = (score / quizItems.length) * 100;
         return (
-            <div className="text-center space-y-8 animate-fade-in border-4 border-primary p-12">
-                <h1 className="text-8xl font-black uppercase">{score} / {quizItems.length}</h1>
+            <div className="text-center space-y-8 animate-fade-in glass-panel p-12 rounded-xl">
+                <h1 className="text-8xl font-black uppercase text-primary">{score} / {quizItems.length}</h1>
                 <div className="space-y-2">
-                    <p className="text-2xl font-bold">{percentage >= 80 ? (percentage === 100 ? "PERFECT SCORE!" : "EXCELLENT!") : "KEEP PRACTICING!"}</p>
+                    <p className="text-2xl font-bold text-foreground">{percentage >= 80 ? (percentage === 100 ? "PERFECT SCORE!" : "EXCELLENT!") : "KEEP PRACTICING!"}</p>
                     <p className="text-foreground/60">Your progress has been saved.</p>
                 </div>
                 <div className="pt-8 flex justify-center gap-4">
                     <button
                         onClick={() => setStep('lobby')}
-                        className="bg-primary text-secondary px-8 py-3 font-bold uppercase"
+                        className="bg-primary text-secondary px-8 py-3 font-bold uppercase rounded-lg"
                     >
                         Try Again
                     </button>
-                    <Link href="/lessons" className="border-2 border-primary px-8 py-3 font-bold uppercase hover:bg-primary hover:text-secondary transition-colors">
+                    <Link href="/lessons" className="border-2 border-primary px-8 py-3 font-bold uppercase hover:bg-primary hover:text-secondary transition-colors rounded-lg text-primary hover:text-secondary">
                         Back to Lessons
                     </Link>
                 </div>
@@ -114,27 +114,27 @@ export default function Quiz() {
 
     return (
         <div className="space-y-12 animate-fade-in">
-            <div className="flex justify-between items-end border-b-4 border-primary pb-4">
+            <div className="flex justify-between items-end border-b-4 border-primary/20 pb-4">
                 <div>
-                    <span className="text-xs font-black uppercase opacity-40">Question {currentIndex + 1} of {quizItems.length}</span>
-                    <h2 className="text-4xl font-black uppercase whitespace-nowrap overflow-hidden text-ellipsis max-w-[200px] md:max-w-none">
+                    <span className="text-xs font-black uppercase opacity-40 text-foreground">Question {currentIndex + 1} of {quizItems.length}</span>
+                    <h2 className="text-4xl font-black uppercase whitespace-nowrap overflow-hidden text-ellipsis max-w-[200px] md:max-w-none text-primary">
                         {currentItem.type === 'multiple_choice' ? "Definition Match" : "Complete the Word"}
                     </h2>
                 </div>
                 <div className="text-right">
-                    <span className="text-4xl font-black">{score}</span>
-                    <p className="text-xs font-bold uppercase opacity-40 leading-none">Score</p>
+                    <span className="text-4xl font-black text-primary">{score}</span>
+                    <p className="text-xs font-bold uppercase opacity-40 leading-none text-foreground">Score</p>
                 </div>
             </div>
 
             <div className="space-y-8">
-                <div className="bg-muted p-12 border-2 border-primary text-center">
-                    <p className="text-xs font-black uppercase opacity-40 mb-4 tracking-widest">
+                <div className="bg-white/50 backdrop-blur-sm p-12 border border-white/50 text-center rounded-xl shadow-sm">
+                    <p className="text-xs font-black uppercase opacity-40 mb-4 tracking-widest text-foreground">
                         {currentItem.type === 'multiple_choice' ? "Identify the word for:" : "What is the word/phrase?"}
                     </p>
-                    <p className="text-3xl font-bold italic tracking-tight uppercase">"{currentItem.meaning}"</p>
+                    <p className="text-3xl font-bold italic tracking-tight uppercase text-primary">"{currentItem.meaning}"</p>
                     {currentItem.type === 'fill_in_the_blank' && (
-                        <p className="mt-8 font-sans opacity-60 italic text-lg">
+                        <p className="mt-8 font-sans opacity-60 italic text-lg text-foreground">
                             Example: {currentItem.example_sentence.replace(new RegExp(currentItem.word_or_phrase, 'gi'), '_____')}
                         </p>
                     )}
