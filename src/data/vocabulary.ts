@@ -1,4 +1,4 @@
-export type Category = 'phrasal verbs' | 'slang words' | 'grammar';
+export type Category = 'phrasal verbs' | 'slang words' | 'grammar' | 'foundational';
 
 export interface VocabularyItem {
   id: string;
@@ -10,6 +10,103 @@ export interface VocabularyItem {
 }
 
 export const VOCABULARY: VocabularyItem[] = [
+  // Foundational - Beginner
+  {
+    id: 'fnd-001',
+    word_or_phrase: 'One / Two / Three',
+    meaning: 'Basic numbers for counting.',
+    example_sentence: 'I have **one** cat and **two** dogs.',
+    category: 'foundational',
+    difficulty: 'beginner'
+  },
+  {
+    id: 'fnd-002',
+    word_or_phrase: 'Red / Blue / Yellow',
+    meaning: 'Primary colors.',
+    example_sentence: 'The sky is **blue** and the sun is **yellow**.',
+    category: 'foundational',
+    difficulty: 'beginner'
+  },
+  {
+    id: 'fnd-003',
+    word_or_phrase: 'Monday / Tuesday',
+    meaning: 'Days of the week.',
+    example_sentence: 'I go to work on **Monday**.',
+    category: 'foundational',
+    difficulty: 'beginner'
+  },
+  {
+    id: 'fnd-004',
+    word_or_phrase: 'Hello / Goodbye',
+    meaning: 'Common greetings.',
+    example_sentence: '**Hello**, how are you? **Goodbye**!',
+    category: 'foundational',
+    difficulty: 'beginner'
+  },
+  {
+    id: 'fnd-005',
+    word_or_phrase: 'Yes / No',
+    meaning: 'Affirmation and negation.',
+    example_sentence: '**Yes**, I want coffee. **No**, thank you.',
+    category: 'foundational',
+    difficulty: 'beginner'
+  },
+  {
+    id: 'fnd-006',
+    word_or_phrase: 'Please / Thank you',
+    meaning: 'Polite expressions.',
+    example_sentence: '**Please** help me. **Thank you** very much.',
+    category: 'foundational',
+    difficulty: 'beginner'
+  },
+  {
+    id: 'fnd-007',
+    word_or_phrase: 'Family (Mother/Father)',
+    meaning: 'Immediate family members.',
+    example_sentence: 'My **mother** and **father** are here.',
+    category: 'foundational',
+    difficulty: 'beginner'
+  },
+  {
+    id: 'fnd-008',
+    word_or_phrase: 'Food / Water',
+    meaning: 'Basic sustenance.',
+    example_sentence: 'I need some **water** and **food**.',
+    category: 'foundational',
+    difficulty: 'beginner'
+  },
+  {
+    id: 'fnd-009',
+    word_or_phrase: 'Hot / Cold',
+    meaning: 'Temperature adjectives.',
+    example_sentence: 'The tea is **hot**, the ice is **cold**.',
+    category: 'foundational',
+    difficulty: 'beginner'
+  },
+  {
+    id: 'fnd-010',
+    word_or_phrase: 'Today / Tomorrow',
+    meaning: 'Time references.',
+    example_sentence: '**Today** is nice. **Tomorrow** will rain.',
+    category: 'foundational',
+    difficulty: 'beginner'
+  },
+  {
+    id: 'fnd-011',
+    word_or_phrase: 'My name is...',
+    meaning: 'Introducing yourself.',
+    example_sentence: '**My name is** Sarah.',
+    category: 'foundational',
+    difficulty: 'beginner'
+  },
+  {
+    id: 'fnd-012',
+    word_or_phrase: 'I go to school',
+    meaning: 'Describing daily routine.',
+    example_sentence: '**I go to school** by bus every day.',
+    category: 'foundational',
+    difficulty: 'beginner'
+  },
   // Grammar - Beginner
   {
     id: 'gr-001',

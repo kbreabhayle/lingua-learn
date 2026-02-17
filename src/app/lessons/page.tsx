@@ -20,6 +20,12 @@ export default function LessonsPage() {
 
     const categories = [
         {
+            name: "Foundational",
+            slug: "foundational",
+            description: "Numbers, colors, days, and basics.",
+            count: filteredVocab.filter(v => v.category === 'foundational').length
+        },
+        {
             name: "Phrasal Verbs",
             slug: "phrasal-verbs",
             description: "Verbs combined with prepositions or adverbs.",

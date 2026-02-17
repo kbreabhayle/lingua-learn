@@ -5,6 +5,7 @@ export default function Home() {
   const phrasalVerbs = VOCABULARY.filter(v => v.category === 'phrasal verbs');
   const slangWords = VOCABULARY.filter(v => v.category === 'slang words');
   const grammar = VOCABULARY.filter(v => v.category === 'grammar');
+  const foundational = VOCABULARY.filter(v => v.category === 'foundational');
 
   return (
     <div className="space-y-16 sm:space-y-24">
@@ -33,7 +34,23 @@ export default function Home() {
       </section>
 
       {/* Categories Grid */}
-      <section className="grid sm:grid-cols-2 gap-8 sm:gap-12 px-4 sm:px-0">
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="glass-panel p-6 sm:p-8 space-y-4 hover:bg-white/50 transition-all group card-hover relative overflow-hidden rounded-xl">
+          <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-primary">Foundational</h2>
+          <p className="text-sm sm:text-base text-foreground/80 font-medium leading-relaxed">
+            The basics. Numbers, colors, days, and essential survival phrases.
+          </p>
+          <div className="pt-4 flex items-center justify-between">
+            <span className="text-[10px] sm:text-xs font-bold opacity-50 text-foreground">{foundational.length} ITEMS</span>
+            <Link
+              href="/lessons/foundational"
+              className="font-black text-sm sm:text-base group-hover:translate-x-1 transition-transform underline underline-offset-4 text-primary"
+            >
+              EXPLORE &rarr;
+            </Link>
+          </div>
+        </div>
+
         <div className="glass-panel p-6 sm:p-8 space-y-4 hover:bg-white/50 transition-all group card-hover relative overflow-hidden rounded-xl">
           <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-primary">Phrasal Verbs</h2>
           <p className="text-sm sm:text-base text-foreground/80 font-medium leading-relaxed">

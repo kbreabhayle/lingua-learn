@@ -16,8 +16,8 @@ export default function SettingsBar() {
                         <button
                             onClick={() => setLevel('beginner')}
                             className={`px-3 py-1 sm:px-4 sm:py-1.5 rounded-md font-bold transition-all ${level === 'beginner'
-                                    ? 'bg-primary text-secondary shadow-sm'
-                                    : 'text-foreground/60 hover:text-foreground'
+                                ? 'bg-primary text-secondary shadow-sm'
+                                : 'text-foreground/60 hover:text-foreground'
                                 }`}
                         >
                             Beginner
@@ -25,8 +25,8 @@ export default function SettingsBar() {
                         <button
                             onClick={() => setLevel('intermediate')}
                             className={`px-3 py-1 sm:px-4 sm:py-1.5 rounded-md font-bold transition-all ${level === 'intermediate'
-                                    ? 'bg-primary text-secondary shadow-sm'
-                                    : 'text-foreground/60 hover:text-foreground'
+                                ? 'bg-primary text-secondary shadow-sm'
+                                : 'text-foreground/60 hover:text-foreground'
                                 }`}
                         >
                             Interm.
@@ -34,13 +34,22 @@ export default function SettingsBar() {
                         <button
                             onClick={() => setLevel('advanced')}
                             className={`px-3 py-1 sm:px-4 sm:py-1.5 rounded-md font-bold transition-all ${level === 'advanced'
-                                    ? 'bg-primary text-secondary shadow-sm'
-                                    : 'text-foreground/60 hover:text-foreground'
+                                ? 'bg-primary text-secondary shadow-sm'
+                                : 'text-foreground/60 hover:text-foreground'
                                 }`}
                         >
                             Advanced
                         </button>
                     </div>
+                </div>
+
+                {/* Level Description - visible on larger screens or as a subtext */}
+                <div className="hidden lg:block flex-1 text-center px-4">
+                    <p className="text-xs text-foreground/70 italic">
+                        {level === 'beginner' && "Build basic English understanding. Focus on simple sentences, everyday vocabulary, and short conversations."}
+                        {level === 'intermediate' && "Improve fluency and comprehension. Focus on longer conversations, conditionals, and expressing opinions."}
+                        {level === 'advanced' && "Speak clearly and naturally with depth. Focus on complex grammar, idioms, and detailed narratives."}
+                    </p>
                 </div>
 
                 {/* Theme Toggle */}
