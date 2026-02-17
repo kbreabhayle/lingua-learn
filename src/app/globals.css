@@ -11,31 +11,45 @@
 }
 
 :root {
-  --background: #e5e7eb;
-  /* Gray 200 */
-  --foreground: #111827;
-  /* Gray 900 */
-  --primary: #374151;
-  /* Gray 700 */
-  --secondary: #f9fafb;
-  /* Gray 50 */
-  --muted: #d1d5db;
-  /* Gray 300 */
-  --border: #9ca3af;
-  /* Gray 400 */
+  /* Default to White Theme */
+  --background: #ffffff;
+  --foreground: #000000;
+  --primary: #000000;
+  --secondary: #e5e5e5;
+  /* Light Gray */
+  --muted: #f5f5f5;
+  --border: #e5e5e5;
+}
+
+:root[data-theme="white"] {
+  --background: #ffffff;
+  --foreground: #000000;
+  --primary: #000000;
+  --secondary: #e5e5e5;
+  --muted: #f5f5f5;
+  --border: #e5e5e5;
+}
+
+:root[data-theme="black"] {
+  --background: #000000;
+  --foreground: #ffffff;
+  --primary: #ffffff;
+  --secondary: #262626;
+  /* Dark Gray */
+  --muted: #171717;
+  --border: #404040;
 }
 
 :root[data-theme="purple"] {
-  --background: #ffffff;
-  --foreground: #000000;
-  --primary: #7c3aed;
-  /* Violet 600 */
-  --secondary: #f5f3ff;
-  /* Violet 50 */
-  --muted: #ede9fe;
-  /* Violet 100 */
-  --border: #ddd6fe;
-  /* Violet 200 */
+  --background: #2e1065;
+  /* Deep Purple */
+  --foreground: #ffffff;
+  --primary: #a78bfa;
+  /* Bright Purple/Lavender */
+  --secondary: #4c1d95;
+  /* Darker Purple for cards */
+  --muted: #581c87;
+  --border: #7c3aed;
 }
 
 body {

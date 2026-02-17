@@ -3,7 +3,7 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 type Level = 'beginner' | 'intermediate' | 'advanced';
-type Theme = 'gray' | 'purple';
+type Theme = 'black' | 'white' | 'purple';
 
 interface SettingsContextType {
     level: Level;
@@ -16,15 +16,19 @@ const SettingsContext = createContext<SettingsContextType | undefined>(undefined
 
 export function SettingsProvider({ children }: { children: ReactNode }) {
     const [level, setLevel] = useState<Level>('beginner');
-    const [theme, setTheme] = useState<Theme>('gray');
+    const [theme, setTheme] = useState<Theme>('white');
 
     // Load settings from localStorage on mount
     useEffect(() => {
         const savedLevel = localStorage.getItem('lingua-level') as Level;
-        const savedTheme = localStorage.getItem('lingua-theme') as Theme;
+        const savedTheme = localStorage.getItem('lingua-theme') as string;
 
         if (savedLevel) setLevel(savedLevel);
-        if (savedTheme) setTheme(savedTheme);
+
+        // Migrate legacy 'gray' theme to 'white' or validate
+        if (savedTheme === 'gray' || savedTheme === 'white' || savedTheme === 'black' || savedTheme === 'purple') {
+            setTheme(savedTheme === 'gray' ? 'white' : savedTheme as Theme);
+        }
     }, []);
 
     // Save settings when they change

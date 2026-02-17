@@ -56,18 +56,28 @@ export default function SettingsBar() {
                 <div className="flex items-center gap-3">
                     <span className="font-bold uppercase opacity-60 tracking-wider text-foreground">Theme:</span>
                     <div className="flex gap-2">
+                        {/* White Theme */}
                         <button
-                            onClick={() => setTheme('gray')}
-                            className={`w-8 h-8 rounded-full border-2 transition-transform hover:scale-110 ${theme === 'gray' ? 'border-primary ring-2 ring-primary/30' : 'border-transparent'
+                            onClick={() => setTheme('white')}
+                            className={`w-8 h-8 rounded-full border-2 transition-transform hover:scale-110 ${theme === 'white' ? 'border-primary ring-2 ring-primary/30' : 'border-transparent'
                                 }`}
-                            style={{ background: '#374151' }} // Gray representation
-                            aria-label="Gray Theme"
+                            style={{ background: '#ffffff', border: '1px solid #e5e5e5' }}
+                            aria-label="White Theme"
                         />
+                        {/* Black Theme */}
+                        <button
+                            onClick={() => setTheme('black')}
+                            className={`w-8 h-8 rounded-full border-2 transition-transform hover:scale-110 ${theme === 'black' ? 'border-primary ring-2 ring-primary/30' : 'border-transparent'
+                                }`}
+                            style={{ background: '#000000', border: '1px solid #404040' }}
+                            aria-label="Black Theme"
+                        />
+                        {/* Purple Theme */}
                         <button
                             onClick={() => setTheme('purple')}
-                            className={`w-8 h-8 rounded-full border-2 transition-transform hover:scale-110 ${theme === 'purple' ? 'border-purple-600 ring-2 ring-purple-600/30' : 'border-transparent'
+                            className={`w-8 h-8 rounded-full border-2 transition-transform hover:scale-110 ${theme === 'purple' ? 'border-white ring-2 ring-purple-400/50' : 'border-transparent'
                                 }`}
-                            style={{ background: '#7c3aed' }} // Purple representation
+                            style={{ background: '#2e1065', border: '1px solid #7c3aed' }}
                             aria-label="Purple Theme"
                         />
                     </div>
