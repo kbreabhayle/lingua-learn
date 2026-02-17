@@ -1,4 +1,4 @@
-export type Category = 'phrasal verbs' | 'slang words';
+export type Category = 'phrasal verbs' | 'slang words' | 'grammar';
 
 export interface VocabularyItem {
   id: string;
@@ -10,6 +10,129 @@ export interface VocabularyItem {
 }
 
 export const VOCABULARY: VocabularyItem[] = [
+  // Grammar - Beginner
+  {
+    id: 'gr-001',
+    word_or_phrase: 'Present Simple',
+    meaning: 'Used for facts, habits, and general truths.',
+    example_sentence: 'I **work** in London.',
+    category: 'grammar',
+    difficulty: 'beginner'
+  },
+  {
+    id: 'gr-002',
+    word_or_phrase: 'Present Continuous',
+    meaning: 'Used for actions happening right now or temporary situations.',
+    example_sentence: 'She **is reading** a book at the moment.',
+    category: 'grammar',
+    difficulty: 'beginner'
+  },
+  {
+    id: 'gr-003',
+    word_or_phrase: 'Past Simple',
+    meaning: 'Used for finished actions in the past.',
+    example_sentence: 'We **watched** a movie yesterday.',
+    category: 'grammar',
+    difficulty: 'beginner'
+  },
+  {
+    id: 'gr-004',
+    word_or_phrase: 'Articles (A/An/The)',
+    meaning: 'Used to define a noun as specific or unspecific.',
+    example_sentence: 'I saw **a** cat. **The** cat was black.',
+    category: 'grammar',
+    difficulty: 'beginner'
+  },
+  {
+    id: 'gr-005',
+    word_or_phrase: 'Plural Nouns',
+    meaning: 'Adding -s or -es to refer to more than one.',
+    example_sentence: 'I have two **dogs** and three **boxes**.',
+    category: 'grammar',
+    difficulty: 'beginner'
+  },
+  // Grammar - Intermediate
+  {
+    id: 'gr-006',
+    word_or_phrase: 'Present Perfect',
+    meaning: 'Connecting the past to the present; experience or recent actions.',
+    example_sentence: 'I **have visited** Paris twice.',
+    category: 'grammar',
+    difficulty: 'intermediate'
+  },
+  {
+    id: 'gr-007',
+    word_or_phrase: 'First Conditional',
+    meaning: 'Real possibilities in the future (If + Present, Will + Verb).',
+    example_sentence: 'If it **rains**, we **will stay** home.',
+    category: 'grammar',
+    difficulty: 'intermediate'
+  },
+  {
+    id: 'gr-008',
+    word_or_phrase: 'Passive Voice',
+    meaning: 'Focusing on the action rather than who did it.',
+    example_sentence: 'The book **was written** by J.K. Rowling.',
+    category: 'grammar',
+    difficulty: 'intermediate'
+  },
+  {
+    id: 'gr-009',
+    word_or_phrase: 'Modal Verbs (Should/Must)',
+    meaning: 'Expressing obligation, advice, or probability.',
+    example_sentence: 'You **must** wear a seatbelt.',
+    category: 'grammar',
+    difficulty: 'intermediate'
+  },
+  {
+    id: 'gr-010',
+    word_or_phrase: 'Gerunds vs Infinitives',
+    meaning: 'Using verbs as nouns (eating) vs base form (to eat).',
+    example_sentence: 'I enjoy **swimming** but I want **to run**.',
+    category: 'grammar',
+    difficulty: 'intermediate'
+  },
+  // Grammar - Advanced
+  {
+    id: 'gr-011',
+    word_or_phrase: 'Third Conditional',
+    meaning: 'Hypothetical situations in the past (If + Past Perfect, Would Have + V3).',
+    example_sentence: 'If I **had known**, I **would have helped**.',
+    category: 'grammar',
+    difficulty: 'advanced'
+  },
+  {
+    id: 'gr-012',
+    word_or_phrase: 'Mixed Conditionals',
+    meaning: 'Mixing past and present hypothetical situations.',
+    example_sentence: 'If I **had studied** harder, I **would be** a doctor now.',
+    category: 'grammar',
+    difficulty: 'advanced'
+  },
+  {
+    id: 'gr-013',
+    word_or_phrase: 'Inversion',
+    meaning: 'Changing word order for emphasis or formal style.',
+    example_sentence: '**Never have I seen** such a beautiful sunset.',
+    category: 'grammar',
+    difficulty: 'advanced'
+  },
+  {
+    id: 'gr-014',
+    word_or_phrase: 'Cleft Sentences',
+    meaning: 'Splitting sentences to focus on specific information.',
+    example_sentence: 'It was **John who** broke the window.',
+    category: 'grammar',
+    difficulty: 'advanced'
+  },
+  {
+    id: 'gr-015',
+    word_or_phrase: 'Subjunctive Mood',
+    meaning: 'Expressing wishes, suggestions, or demands.',
+    example_sentence: 'I suggest that he **study** more.',
+    category: 'grammar',
+    difficulty: 'advanced'
+  },
   // Phrasal Verbs
   {
     id: 'pv-001',

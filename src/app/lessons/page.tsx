@@ -30,6 +30,12 @@ export default function LessonsPage() {
             slug: "slang-words",
             description: "Informal language and contemporary expressions.",
             count: filteredVocab.filter(v => v.category === 'slang words').length
+        },
+        {
+            name: "Grammar",
+            slug: "grammar",
+            description: "Essential rules, tenses, and sentence structures.",
+            count: filteredVocab.filter(v => v.category === 'grammar').length
         }
     ];
 
