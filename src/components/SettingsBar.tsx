@@ -15,7 +15,7 @@ export default function SettingsBar() {
                     <div className="flex bg-muted/50 p-1 rounded-lg">
                         <button
                             onClick={() => setLevel('beginner')}
-                            className={`px-4 py-1.5 rounded-md font-bold transition-all ${level === 'beginner'
+                            className={`px-3 py-1 sm:px-4 sm:py-1.5 rounded-md font-bold transition-all ${level === 'beginner'
                                     ? 'bg-primary text-secondary shadow-sm'
                                     : 'text-foreground/60 hover:text-foreground'
                                 }`}
@@ -23,8 +23,17 @@ export default function SettingsBar() {
                             Beginner
                         </button>
                         <button
+                            onClick={() => setLevel('intermediate')}
+                            className={`px-3 py-1 sm:px-4 sm:py-1.5 rounded-md font-bold transition-all ${level === 'intermediate'
+                                    ? 'bg-primary text-secondary shadow-sm'
+                                    : 'text-foreground/60 hover:text-foreground'
+                                }`}
+                        >
+                            Interm.
+                        </button>
+                        <button
                             onClick={() => setLevel('advanced')}
-                            className={`px-4 py-1.5 rounded-md font-bold transition-all ${level === 'advanced'
+                            className={`px-3 py-1 sm:px-4 sm:py-1.5 rounded-md font-bold transition-all ${level === 'advanced'
                                     ? 'bg-primary text-secondary shadow-sm'
                                     : 'text-foreground/60 hover:text-foreground'
                                 }`}

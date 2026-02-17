@@ -22,10 +22,11 @@ export default function Quiz() {
 
     // Generate 10 random questions with mixed types based on level
     const quizItems = useMemo(() => {
-        const targetDifficulty = level === 'beginner' ? 'beginner' : 'intermediate';
+        // Map 'advanced' to 'intermediate' until we have dedicated advanced content
+        const targetDifficulty = level === 'advanced' ? 'intermediate' : level;
         const filteredVocab = VOCABULARY.filter(v => v.difficulty === targetDifficulty);
 
-        // Fallback if not enough items in filtered set (shouldn't happen with 500 items but good safety)
+        // Fallback if not enough items in filtered set
         const sourceData = filteredVocab.length >= 10 ? filteredVocab : VOCABULARY;
 
         return [...sourceData]

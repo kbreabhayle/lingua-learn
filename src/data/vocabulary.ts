@@ -6,7 +6,7 @@ export interface VocabularyItem {
   meaning: string;
   example_sentence: string;
   category: Category;
-  difficulty: 'beginner' | 'intermediate';
+  difficulty: 'beginner' | 'intermediate' | 'advanced';
 }
 
 export const VOCABULARY: VocabularyItem[] = [

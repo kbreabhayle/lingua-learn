@@ -1,3 +1,5 @@
+"use client";
+
 import { VOCABULARY } from "@/data/vocabulary";
 import Link from "next/link";
 import { useSettings } from "@/context/SettingsContext";
@@ -6,8 +8,13 @@ export default function LessonsPage() {
     const { level } = useSettings();
 
     // Filter vocabulary based on selected level
-    // Map 'advanced' setting to 'intermediate' data for now, or assume data will be updated
-    const targetDifficulty = level === 'beginner' ? 'beginner' : 'intermediate';
+    // For now, if 'advanced' is selected but we don't have enough strictly 'advanced' items,
+    // we can include 'intermediate' as well or just show available. 
+    // Let's strictly filter first, if empty, maybe show intermediate.
+    // Actually simplicity is better: match exact level. 
+    // But since I haven't retagged data, 'advanced' will be empty.
+    // I will map 'advanced' to 'intermediate' for now in code until data is tagged.
+    const targetDifficulty = level === 'advanced' ? 'intermediate' : level;
 
     const filteredVocab = VOCABULARY.filter(v => v.difficulty === targetDifficulty);
 

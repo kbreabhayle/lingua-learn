@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
-type Level = 'beginner' | 'advanced';
+type Level = 'beginner' | 'intermediate' | 'advanced';
 type Theme = 'gray' | 'purple';
 
 interface SettingsContextType {
